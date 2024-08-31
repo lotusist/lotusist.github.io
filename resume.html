@@ -93,6 +93,8 @@
                 <a href="mailto:lotusist@naver.com">lotusist@naver.com</a> |
                 <a href="https://github.com/lotusist" >Github</a> 
                 <br>
+                <a href="#" id="downloadPDF">Download PDF</a>
+                <br>
                 Last Updated: Aug. 2024  </small>
             </p>
         </div>
@@ -218,6 +220,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('downloadPDF').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            var element = document.body;
+            var opt = {
+                margin:       5,              // in inches
+                html2canvas:  { scale: 2 },   // Increase the scale for better quality
+                pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] } // Ensures better page breaks
+            };
+
+            html2pdf().from(element).set(opt).save('Seungju_Lee_resume.pdf');
+        });
+    </script>
 </body>
 </html>
 
